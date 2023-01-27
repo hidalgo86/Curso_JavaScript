@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript: Errores comunes y cómo solucionarlos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <script>
+        const RUTA_IMAGEN = "./imagenes/img1.jpg";
+
+        window.addEventListener('load', ()=>{
+            let btn = document.getElementById("btn");
+            btn.addEventListener("click", cargarImagen);
+        });
+
+        function cargarImagen(){
+            let imagenDOM = document.createElement("img");
+            imagenDOM.src = RUTA_IMAGEN;
+            let contenedor = document.getElementsByClassName("contenedor")[0];
+            contenedor.appendChild(imagenDOM);
+            imagenDOM.addEventListener("load", imagenCargada);
+        }
+
+        function imagenCargada(){
+            console.log("la imagen ha cargado");
+        }
+
+    </script>
+    <div class="contenedor">
+        <button id="btn">Cargar imagen</button>
+    </div>
+</body>
+</html>
